@@ -13,13 +13,9 @@ public class TestSpring {
                 "applicationContext.xml"
         );
         /**
-         * Создание объекта путем получения бина - название бина и тот класс, бин которого хотим получить
+         * Dependency Injection - внедрение зависимости спрингом
          */
-        Music music = context.getBean("musicBean", Music.class);
-        /**
-         * Ручное внедрение зависимости
-         */
-        MusicPlayer musicPlayer = new MusicPlayer(music);
+        MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         musicPlayer.playMusic();
 
         context.close();
