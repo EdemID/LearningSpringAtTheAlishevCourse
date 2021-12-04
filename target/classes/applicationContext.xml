@@ -14,5 +14,8 @@
     <bean id="musicPlayer"
           class="example.first.MusicPlayer">
         <property name="music" ref="musicBean"/>
+
+        <property name="name" value="Some name"/>
+        <property name="volume" value="58"/>
     </bean>
 </beans>

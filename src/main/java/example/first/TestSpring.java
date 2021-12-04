@@ -25,6 +25,8 @@ public class TestSpring {
         MusicPlayer mpThroughSetter = new MusicPlayer();
         mpThroughSetter.setMusic(context.getBean("musicBean", Classical.class));
 
+        System.out.println(musicPlayer.getName());
+        System.out.println(musicPlayer.getVolume());
         context.close();
     }
 }
