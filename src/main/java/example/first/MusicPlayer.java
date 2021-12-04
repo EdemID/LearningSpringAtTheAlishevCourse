@@ -5,14 +5,21 @@ package example.first;
  */
 public class MusicPlayer {
 
-        private Music music;
-        // IoC - здесь внедрена зависимость
-        public MusicPlayer(Music music) {
-            this.music = music;
-        }
+    private Music music;
 
-        public void playMusic() {
-            System.out.println("Playing: " + music.getSong());
-        }
+    public MusicPlayer() {
+    }
+
+    public MusicPlayer(Music music) {
+        this.music = music;
+    }
+
+    public void playMusic() {
+        System.out.println("Playing: " + music.getSong());
+    }
+    // IoC - здесь внедрена зависимость
+    public void setMusic(Music music) {
+        this.music = music;
+    }
 
 }

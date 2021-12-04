@@ -13,6 +13,6 @@
 
     <bean id="musicPlayer"
           class="example.first.MusicPlayer">
-        <constructor-arg ref="musicBean"/>
+        <property name="music" ref="musicBean"/>
     </bean>
 </beans>
