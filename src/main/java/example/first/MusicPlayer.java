@@ -1,6 +1,7 @@
 package example.first;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,19 +10,16 @@ import org.springframework.stereotype.Component;
 @Component
 public class MusicPlayer {
 
-    private Classical classical;
-    private Rock rock;
+    private Music classical;
+    private Music rock;
 
-    @Autowired
-    public MusicPlayer(Classical classical, Rock rock) {
+    public MusicPlayer(@Qualifier("classicalBean") Music classical,
+                       @Qualifier("rockBean") Music rock) {
         this.classical = classical;
         this.rock = rock;
     }
 
-    public MusicPlayer() {
-    }
-
     public String playMusic() {
-        return classical.getSong();
+        return classical.getSong() + ", and" + rock.getSong();
     }
 }
