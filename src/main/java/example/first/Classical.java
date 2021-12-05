@@ -2,22 +2,30 @@ package example.first;
 
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Random;
+
 @Component("classicalBean")
 public class Classical implements Music {
 
-    private Classical() {
+    private Genre genre = Genre.CLASSICAL;
+    private List<String> classicalList = new ArrayList<>();
 
-    }
-    /**
-     * Фабричный метод
-     */
-    public static Classical getClassical() {
-        return new Classical();
+    private Classical() {
+        classicalList.add("Hungarian Rhapsody");
+        classicalList.add("Melancholia");
+        classicalList.add("Love Is Stronger Than Death");
     }
 
     @Override
-    public String getSong() {
-        return "Hungarian Rhapsody";
+    public List<String> getSongs() {
+        return classicalList;
+    }
+
+    public Genre getGenre() {
+        return genre;
     }
 
     public void init() {

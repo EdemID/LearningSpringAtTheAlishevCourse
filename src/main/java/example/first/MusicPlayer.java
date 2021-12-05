@@ -4,22 +4,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+import java.util.*;
+
 /**
  * В этом классе применена архитектура IoC
  */
 @Component
 public class MusicPlayer {
 
-    private Music classical;
-    private Music rock;
+    private Map<Genre, Music> musicMap = new HashMap<>();
 
+    @Autowired
     public MusicPlayer(@Qualifier("classicalBean") Music classical,
                        @Qualifier("rockBean") Music rock) {
-        this.classical = classical;
-        this.rock = rock;
+        musicMap.put(classical.getGenre(), classical);
+        musicMap.put(rock.getGenre(), rock);
     }
 
-    public String playMusic() {
-        return classical.getSong() + ", and" + rock.getSong();
+    public String playMusic(Genre genre) {
+        Random random = new Random();
+        List<String> musicList = musicMap.get(genre).getSongs();
+        int num = random.nextInt(musicList.size());
+        return musicList.get(num);
     }
 }
