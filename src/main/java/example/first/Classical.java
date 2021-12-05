@@ -1,5 +1,8 @@
 package example.first;
 
+import org.springframework.stereotype.Component;
+
+@Component("classicalBean")
 public class Classical implements Music {
 
     private Classical() {
