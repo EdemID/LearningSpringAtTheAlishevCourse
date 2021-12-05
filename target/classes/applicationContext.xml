@@ -11,6 +11,7 @@
 
     <bean id="musicBean"
           class="example.first.Classical"
+          scope="prototype"
           init-method="init"
           destroy-method="destroy">
     </bean>
