@@ -11,12 +11,15 @@ public class MusicPlayer {
 
     private Classical classical;
 
-    @Autowired
-    public MusicPlayer(Classical classical) {
-        this.classical = classical;
+    public MusicPlayer() {
     }
 
     public void playMusic() {
         System.out.println(classical.getSong());
+    }
+
+    @Autowired
+    public void setClassical(Classical classical) {
+        this.classical = classical;
     }
 }
