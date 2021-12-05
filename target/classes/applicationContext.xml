@@ -9,30 +9,32 @@
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="classicalBean"
-          class="example.first.Classical">
+    <bean id="musicBean"
+          class="example.first.Classical"
+          init-method="init"
+          destroy-method="destroy">
     </bean>
+    <!--
+        <bean id="rockBean"
+              class="example.first.Rock">
+        </bean>
 
-    <bean id="rockBean"
-          class="example.first.Rock">
-    </bean>
+        <bean id="countryBean"
+              class="example.first.Country">
+        </bean>
 
-    <bean id="countryBean"
-          class="example.first.Country">
-    </bean>
+       <bean id="musicPlayer"
+              class="example.first.MusicPlayer"
+              scope="prototype">
+            <property name="listMusic">
+                <list>
+                    <ref bean="classicalBean"/>
+                    <ref bean="rockBean"/>
+                    <ref bean="countryBean"/>
+                </list>
+            </property>
 
-    <bean id="musicPlayer"
-          class="example.first.MusicPlayer"
-          scope="prototype">
-        <property name="listMusic">
-            <list>
-                <ref bean="classicalBean"/>
-                <ref bean="rockBean"/>
-                <ref bean="countryBean"/>
-            </list>
-        </property>
-
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.value}"/>
-    </bean>
+            <property name="name" value="${musicPlayer.name}"/>
+            <property name="volume" value="${musicPlayer.value}"/>
+        </bean>-->
 </beans>
