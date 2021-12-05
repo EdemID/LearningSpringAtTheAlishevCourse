@@ -1,27 +1,23 @@
 package example.first;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * В этом классе применена архитектура IoC
  */
 public class MusicPlayer {
 
-    private Music music;
+    private List<Music> listMusic = new ArrayList<>();
+
     private String name;
     private int volume;
 
     public MusicPlayer() {
     }
 
-    public MusicPlayer(Music music) {
-        this.music = music;
-    }
-
     public void playMusic() {
-        System.out.println("Playing: " + music.getSong());
-    }
-    // IoC - здесь внедрена зависимость
-    public void setMusic(Music music) {
-        this.music = music;
+        listMusic.forEach(x -> System.out.println("Playing: " + x.getSong()));
     }
 
     public void setName(String name) {
@@ -38,5 +34,13 @@ public class MusicPlayer {
 
     public int getVolume() {
         return volume;
+    }
+
+    public void setListMusic(List<Music> listMusic) {
+        this.listMusic = listMusic;
+    }
+
+    public List<Music> getListMusic() {
+        return listMusic;
     }
 }

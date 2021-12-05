@@ -17,16 +17,6 @@ public class TestSpring {
          */
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         musicPlayer.playMusic();
-
-        //внутренняя реализация внедрения зависимости через конструктор
-        MusicPlayer mpThroughConstructor = new MusicPlayer(context.getBean("musicBean", Classical.class));
-
-        //внутренняя реализация внедрения зависимости через set()
-        MusicPlayer mpThroughSetter = new MusicPlayer();
-        mpThroughSetter.setMusic(context.getBean("musicBean", Classical.class));
-
-        System.out.println(musicPlayer.getName());
-        System.out.println(musicPlayer.getVolume());
         context.close();
     }
 }
