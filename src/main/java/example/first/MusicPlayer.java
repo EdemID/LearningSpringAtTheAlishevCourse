@@ -1,30 +1,26 @@
 package example.first;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 /**
  * В этом классе применена архитектура IoC
  */
-@Component
 public class MusicPlayer {
 
-    private Map<Genre, Music> musicMap = new HashMap<>();
+    private List<Music> musicList;
 
-    @Autowired
-    public MusicPlayer(@Qualifier("classicalBean") Music classical,
-                       @Qualifier("rockBean") Music rock) {
-        musicMap.put(classical.getGenre(), classical);
-        musicMap.put(rock.getGenre(), rock);
+    public MusicPlayer(List<Music> musicList) {
+        this.musicList = musicList;
     }
 
-    public String playMusic(Genre genre) {
+    public String playMusic() {
         Random random = new Random();
-        List<String> musicList = musicMap.get(genre).getSongs();
-        int num = random.nextInt(musicList.size());
-        return musicList.get(num);
+        int randomGenre = random.nextInt(musicList.size());
+        List<String> songList = musicList.get(randomGenre).getSongs();
+        int randomSong = random.nextInt(songList.size());
+        return songList.get(randomSong);
     }
 }
