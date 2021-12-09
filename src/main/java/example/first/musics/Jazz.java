@@ -1,4 +1,7 @@
-package example.first;
+package example.first.musics;
+
+import example.first.Genre;
+import example.first.interfaces.Music;
 
 import java.util.ArrayList;
 import java.util.List;

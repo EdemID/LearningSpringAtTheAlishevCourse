@@ -1,5 +1,10 @@
-package example.first;
+package example.first.config;
 
+import example.first.*;
+import example.first.musics.Classical;
+import example.first.musics.Jazz;
+import example.first.musics.Rock;
+import example.first.interfaces.Music;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

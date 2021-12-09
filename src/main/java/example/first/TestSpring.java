@@ -1,5 +1,6 @@
 package example.first;
 
+import example.first.config.SpringConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class TestSpring {
@@ -19,7 +20,7 @@ public class TestSpring {
         MusicPlayer musicPlayer = context.getBean("musicPlayer", MusicPlayer.class);
         System.out.println(musicPlayer.playMusic());
         System.out.println(musicPlayer.playMusic());
-
+        System.out.println("musicPlayer name - " + musicPlayer.getName() + " and volume - " + musicPlayer.getVolume());
         context.close();
     }
 }

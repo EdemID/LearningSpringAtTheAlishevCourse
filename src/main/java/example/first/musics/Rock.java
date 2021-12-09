@@ -1,5 +1,7 @@
-package example.first;
+package example.first.musics;
 
+import example.first.Genre;
+import example.first.interfaces.Music;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

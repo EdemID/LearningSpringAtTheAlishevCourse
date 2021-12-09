@@ -1,7 +1,8 @@
 package example.first;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import example.first.interfaces.Music;
+import org.springframework.beans.factory.annotation.Value;
+
 import java.util.List;
 import java.util.Random;
 
@@ -11,6 +12,10 @@ import java.util.Random;
 public class MusicPlayer {
 
     private List<Music> musicList;
+    @Value("${musicPlayer.name}")
+    private String name;
+    @Value("${musicPlayer.volume}")
+    private String volume;
 
     public MusicPlayer(List<Music> musicList) {
         this.musicList = musicList;
@@ -22,5 +27,13 @@ public class MusicPlayer {
         List<String> songList = musicList.get(randomGenre).getSongs();
         int randomSong = random.nextInt(songList.size());
         return songList.get(randomSong);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getVolume() {
+        return volume;
     }
 }

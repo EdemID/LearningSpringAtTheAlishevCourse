@@ -1,4 +1,6 @@
-package example.first;
+package example.first.interfaces;
+
+import example.first.Genre;
 
 import java.util.List;
 
